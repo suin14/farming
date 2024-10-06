@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dp4jl83qd2h30"
+path="res://.godot/imported/Remembering Something I Forgot.mp3-f1079c1e57cfc4ce6cf10f568f099ab0.mp3str"
+
+[deps]
+
+source_file="res://assets/Remembering Something I Forgot.mp3"
+dest_files=["res://.godot/imported/Remembering Something I Forgot.mp3-f1079c1e57cfc4ce6cf10f568f099ab0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

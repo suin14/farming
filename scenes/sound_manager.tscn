@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhtv5h18rcrb3"]
+
+[ext_resource type="Script" path="res://scenes/sound_manager.gd" id="1_juqqe"]
+
+[node name="SoundManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_juqqe")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="UIPress" type="AudioStreamPlayer" parent="SFX"]
+bus = &"SFX"
+
+[node name="UIFocus" type="AudioStreamPlayer" parent="SFX"]
+bus = &"SFX"
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"BGM"

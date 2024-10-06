@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c66kkd4utabpy"]
+
+[ext_resource type="Script" path="res://scripts/classes/item.gd" id="1_75dtp"]
+[ext_resource type="Texture2D" uid="uid://1u6fugprdafc" path="res://assets/wheat.png" id="2_3hf20"]
+
+[resource]
+script = ExtResource("1_75dtp")
+name = "wheat"
+texture = ExtResource("2_3hf20")
+price = 100
+grown_period = 4

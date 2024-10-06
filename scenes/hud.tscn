@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://v3pdo42a8gbf"]
+
+[ext_resource type="PackedScene" uid="uid://b1blqyxjyw4lq" path="res://scenes/inventory.tscn" id="1_jet6v"]
+[ext_resource type="Script" path="res://scenes/hud.gd" id="1_muddu"]
+[ext_resource type="Texture2D" uid="uid://biibj8deenqrf" path="res://assets/money.png" id="3_dv05v"]
+[ext_resource type="FontFile" uid="uid://c5258yevxnwtx" path="res://assets/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="4_yypk4"]
+[ext_resource type="Texture2D" uid="uid://cveysqx34dkkx" path="res://assets/menu.png" id="5_d5m3p"]
+[ext_resource type="PackedScene" uid="uid://c3ppgqltptlni" path="res://scenes/settings_menu.tscn" id="6_6gx04"]
+
+[node name="HUD" type="CanvasLayer"]
+layer = 99
+script = ExtResource("1_muddu")
+
+[node name="Inventory" parent="." instance=ExtResource("1_jet6v")]
+
+[node name="MoneyPanel" type="Sprite2D" parent="."]
+position = Vector2(335.75, 19.2434)
+scale = Vector2(2.27143, 1.71681)
+texture = ExtResource("3_dv05v")
+
+[node name="money" type="Label" parent="."]
+offset_left = 324.0
+offset_top = 15.0
+offset_right = 369.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0.490196, 0.360784, 0.345098, 1)
+theme_override_fonts/font = ExtResource("4_yypk4")
+theme_override_font_sizes/font_size = 16
+text = "99999"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Settings" type="TextureButton" parent="."]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 26.0
+offset_bottom = 28.0
+texture_normal = ExtResource("5_d5m3p")
+
+[node name="SettingsMenu" parent="." instance=ExtResource("6_6gx04")]
+visible = false
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 3.0
+offset_bottom = 3.0
+
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

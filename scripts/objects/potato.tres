@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://ci6ss3iafxkr1"]
+
+[ext_resource type="Script" path="res://scripts/classes/item.gd" id="1_0kjii"]
+[ext_resource type="Texture2D" uid="uid://dtokgkyncc1rf" path="res://assets/potato.png" id="2_y2n58"]
+
+[resource]
+script = ExtResource("1_0kjii")
+name = "potato"
+texture = ExtResource("2_y2n58")
+price = 300
+grown_period = 6

@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://dvi40yqd1j5yr"]
+
+[ext_resource type="FontFile" uid="uid://dr3kq7xuu31dy" path="res://assets/front/Silver.ttf" id="1_2c0ex"]
+[ext_resource type="Texture2D" uid="uid://v8en8bouurl0" path="res://assets/Square Buttons 26x19.png" id="2_ngk1d"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yp5qn"]
+texture = ExtResource("2_ngk1d")
+texture_margin_left = 4.98852
+texture_margin_top = 6.42161
+texture_margin_right = 4.98852
+texture_margin_bottom = 3.18424
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/constants/outline_size = 1
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("1_2c0ex")
+Button/styles/disabled = SubResource("StyleBoxTexture_yp5qn")
+Button/styles/focus = SubResource("StyleBoxTexture_yp5qn")
+Button/styles/hover = SubResource("StyleBoxTexture_yp5qn")
+Button/styles/normal = SubResource("StyleBoxTexture_yp5qn")
+Button/styles/pressed = SubResource("StyleBoxTexture_yp5qn")
