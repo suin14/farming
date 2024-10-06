@@ -1,30 +1,50 @@
-[gd_scene load_steps=7 format=3 uid="uid://v3pdo42a8gbf"]
+[gd_scene load_steps=9 format=3 uid="uid://v3pdo42a8gbf"]
 
 [ext_resource type="PackedScene" uid="uid://b1blqyxjyw4lq" path="res://scenes/inventory.tscn" id="1_jet6v"]
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_muddu"]
+[ext_resource type="Texture2D" uid="uid://blojvwxaq6mxv" path="res://assets/time.png" id="3_ajlr0"]
 [ext_resource type="Texture2D" uid="uid://biibj8deenqrf" path="res://assets/money.png" id="3_dv05v"]
 [ext_resource type="FontFile" uid="uid://c5258yevxnwtx" path="res://assets/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="4_yypk4"]
 [ext_resource type="Texture2D" uid="uid://cveysqx34dkkx" path="res://assets/menu.png" id="5_d5m3p"]
 [ext_resource type="PackedScene" uid="uid://c3ppgqltptlni" path="res://scenes/settings_menu.tscn" id="6_6gx04"]
+[ext_resource type="PackedScene" uid="uid://c2nfrovlbox5h" path="res://scenes/time_gui.tscn" id="8_nao0g"]
 
 [node name="HUD" type="CanvasLayer"]
 layer = 99
 script = ExtResource("1_muddu")
 
+[node name="Night" type="CanvasLayer" parent="."]
+layer = 99
+
+[node name="ColorRect" type="ColorRect" parent="Night"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
 [node name="Inventory" parent="." instance=ExtResource("1_jet6v")]
 offset_left = -61.0
 offset_top = -41.0
 
+[node name="Time" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(335.75, 19.243)
+scale = Vector2(2.27, 1.71)
+texture = ExtResource("3_ajlr0")
+
 [node name="MoneyPanel" type="Sprite2D" parent="."]
-position = Vector2(335.75, 19.2434)
+position = Vector2(335.75, 57.7433)
 scale = Vector2(2.27143, 1.71681)
 texture = ExtResource("3_dv05v")
 
 [node name="money" type="Label" parent="."]
 offset_left = 324.0
-offset_top = 15.0
+offset_top = 53.4999
 offset_right = 369.0
-offset_bottom = 33.0
+offset_bottom = 71.4999
 theme_override_colors/font_color = Color(0.490196, 0.360784, 0.345098, 1)
 theme_override_fonts/font = ExtResource("4_yypk4")
 theme_override_font_sizes/font_size = 16
@@ -46,4 +66,17 @@ offset_top = 3.0
 offset_right = 3.0
 offset_bottom = 3.0
 
+[node name="TimeGUI" parent="." instance=ExtResource("8_nao0g")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = 19.0
+offset_right = -48.0
+offset_bottom = 19.0
+grow_horizontal = 0
+scale = Vector2(2.271, 1.717)
+
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="day" from="TimeGUI" to="." method="_on_time_gui_day"]
+[connection signal="night" from="TimeGUI" to="." method="_on_time_gui_night"]

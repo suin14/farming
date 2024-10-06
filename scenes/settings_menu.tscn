@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3ppgqltptlni"]
+[gd_scene load_steps=6 format=3 uid="uid://c3ppgqltptlni"]
 
 [ext_resource type="Texture2D" uid="uid://b58owc1q081ha" path="res://assets/Setting menu.png" id="1_vjjqt"]
 [ext_resource type="Script" path="res://scenes/settings_menu.gd" id="2_nd33y"]
 [ext_resource type="Theme" uid="uid://dvi40yqd1j5yr" path="res://assets/main_theme.tres" id="2_u0clg"]
 [ext_resource type="PackedScene" uid="uid://qfokvelwikb4" path="res://scenes/volume_slider.tscn" id="4_ctlp0"]
+[ext_resource type="FontFile" uid="uid://c5258yevxnwtx" path="res://assets/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="4_xlnvb"]
 
 [node name="SettingsMenu" type="Control"]
 process_mode = 2
@@ -69,7 +70,8 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="TextureRect/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 7
+theme_override_fonts/font = ExtResource("4_xlnvb")
+theme_override_font_sizes/font_size = 10
 text = "BGM"
 
 [node name="Volume" parent="TextureRect/VBoxContainer/HBoxContainer" instance=ExtResource("4_ctlp0")]

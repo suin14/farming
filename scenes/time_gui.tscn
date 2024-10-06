@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2nfrovlbox5h"]
+
+[ext_resource type="Texture2D" uid="uid://blojvwxaq6mxv" path="res://assets/time.png" id="1_5r4xk"]
+[ext_resource type="FontFile" uid="uid://c5258yevxnwtx" path="res://assets/Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="1_mrg4t"]
+[ext_resource type="Script" path="res://scenes/time_gui.gd" id="2_1yxmg"]
+[ext_resource type="Script" path="res://scripts/classes/time_system.gd" id="4_uiu3k"]
+[ext_resource type="Script" path="res://DateTime.gd" id="5_xefhr"]
+
+[sub_resource type="Theme" id="Theme_sp8py"]
+Label/colors/font_color = Color(0.490196, 0.360784, 0.345098, 1)
+Label/colors/font_outline_color = Color(0.490196, 0.360784, 0.345098, 1)
+Label/constants/shadow_outline_size = 2
+Label/font_sizes/font_size = 9
+Label/fonts/font = ExtResource("1_mrg4t")
+
+[sub_resource type="Resource" id="Resource_ionc8"]
+script = ExtResource("5_xefhr")
+seconds = 0
+minutes = 0
+hours = 6
+days = 0
+
+[node name="TimeGUI" type="Panel"]
+theme = SubResource("Theme_sp8py")
+script = ExtResource("2_1yxmg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5r4xk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = -14.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = 7.0
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="Hour" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mrg4t")
+text = "23"
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = ":"
+
+[node name="Minutes" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "59"
+
+[node name="TimeSystem" type="Node" parent="."]
+script = ExtResource("4_uiu3k")
+date_time = SubResource("Resource_ionc8")
+ticks_pre_second = 100
+
+[connection signal="updated" from="TimeSystem" to="." method="_on_time_system_updated"]

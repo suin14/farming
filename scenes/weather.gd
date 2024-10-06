@@ -33,7 +33,7 @@ func _update_weather() -> void:
 	if _current_weather == "rainy":
 		show()
 		var t = create_tween()
-		t.tween_property(rain_colour, "color:a", 0.6, 3)
+		t.tween_property(rain_colour, "color:a", 0.3, 3)
 
 	else:  # sunny
 		var t = create_tween()
