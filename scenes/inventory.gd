@@ -18,12 +18,10 @@ func _ready() -> void:
 
 
 func _on_hand_outro() -> void:
-	#_hand_outro = create_tween()
-	#_hand_outro.set_trans(Tween.TRANS_SINE).set_parallel()
-	#_hand_outro.tween_property(hand, "scale", Vector2.ONE * 3, 0.15)
-	#_hand_outro.tween_property(hand, "modulate:a", 0.0, 0.15)
-	#_hand_outro.chain().tween_callback(hand.hide)
-	hand.hide()
+	_hand_outro = create_tween()
+	_hand_outro.set_trans(Tween.TRANS_SINE).set_parallel()
+	_hand_outro.tween_property(hand, "modulate:a", 0.0, 0.15)
+	_hand_outro.chain().tween_callback(hand.hide)
 	Game.inventory.active_item = null
 
 
@@ -47,12 +45,14 @@ func _update_ui(is_init:= false):
 
 func _on_prev_pressed() -> void:
 	Game.inventory.select_prev()
-	_on_hand_outro()
+	if Game.inventory.active_item:
+		_on_hand_outro()
 
 
 func _on_next_pressed() -> void:
 	Game.inventory.select_next()
-	_on_hand_outro()
+	if Game.inventory.active_item:
+		_on_hand_outro()
 
 
 func _on_use_pressed() -> void:
