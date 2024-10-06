@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://qfokvelwikb4"]
+
+[ext_resource type="Texture2D" uid="uid://btmihxp7qri6b" path="res://assets/UI Settings Buttons.png" id="1_swa6b"]
+[ext_resource type="Texture2D" uid="uid://mcn55lfakoxf" path="res://assets/button.png" id="2_6wpqi"]
+[ext_resource type="Script" path="res://scenes/volume_slider.gd" id="2_lfas5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6c31"]
+atlas = ExtResource("1_swa6b")
+region = Rect2(0, 192, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4ir5"]
+atlas = ExtResource("1_swa6b")
+region = Rect2(48, 192, 48, 16)
+
+[node name="Volume" type="HBoxContainer"]
+offset_right = 70.0
+offset_bottom = 16.0
+alignment = 2
+script = ExtResource("2_lfas5")
+
+[node name="decrease" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("2_6wpqi")
+flip_h = true
+
+[node name="VolumeSlider" type="TextureProgressBar" parent="."]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 0.5
+texture_under = SubResource("AtlasTexture_c6c31")
+texture_progress = SubResource("AtlasTexture_f4ir5")
+
+[node name="increase" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("2_6wpqi")
+
+[connection signal="pressed" from="decrease" to="." method="_on_decrease_pressed"]
+[connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="increase" to="." method="_on_increase_pressed"]

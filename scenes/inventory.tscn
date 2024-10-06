@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1blqyxjyw4lq"]
+[gd_scene load_steps=5 format=3 uid="uid://b1blqyxjyw4lq"]
 
 [ext_resource type="Script" path="res://scenes/inventory.gd" id="1_s4jcn"]
+[ext_resource type="Texture2D" uid="uid://mcn55lfakoxf" path="res://assets/button.png" id="2_dp6gv"]
 [ext_resource type="Texture2D" uid="uid://d1wp50ff0sorc" path="res://assets/box.png" id="3_8m16s"]
-[ext_resource type="Texture2D" uid="uid://cm2rfhkf88bdv" path="res://assets/Sprout Lands - UI Pack - Basic pack/Sprite sheets/button.png" id="3_t222i"]
-[ext_resource type="Texture2D" uid="uid://bxe4r2omymajc" path="res://assets/Sprout Lands - UI Pack - Basic pack/Sprite sheets/button - 副本.png" id="4_7lbh7"]
-[ext_resource type="Texture2D" uid="uid://dm6ie4itrni7i" path="res://assets/Sprout Lands - UI Pack - Basic pack/Sprite sheets/Mouse sprites/Catpaw holding Mouse icon.png" id="6_xwh8h"]
+[ext_resource type="Texture2D" uid="uid://uxceubexn8n8" path="res://assets/choose.png" id="4_d51pj"]
 
 [node name="Inventory" type="VBoxContainer"]
 anchors_preset = 3
@@ -28,10 +27,12 @@ alignment = 2
 [node name="Prev" type="TextureButton" parent="ItemBar"]
 layout_mode = 2
 size_flags_vertical = 4
-texture_normal = ExtResource("3_t222i")
-texture_pressed = ExtResource("4_7lbh7")
-texture_hover = ExtResource("3_t222i")
-texture_focused = ExtResource("3_t222i")
+texture_normal = ExtResource("2_dp6gv")
+texture_pressed = ExtResource("2_dp6gv")
+texture_hover = ExtResource("2_dp6gv")
+texture_disabled = ExtResource("2_dp6gv")
+texture_focused = ExtResource("2_dp6gv")
+flip_h = true
 
 [node name="Use" type="TextureButton" parent="ItemBar"]
 layout_mode = 2
@@ -39,21 +40,21 @@ texture_normal = ExtResource("3_8m16s")
 
 [node name="Prop" type="Sprite2D" parent="ItemBar/Use"]
 z_index = 1
-position = Vector2(15, 15)
+position = Vector2(17, 17)
 
 [node name="Hand" type="Sprite2D" parent="ItemBar/Use"]
 z_index = 1
-position = Vector2(22, 20)
-texture = ExtResource("6_xwh8h")
+position = Vector2(17, 17)
+texture = ExtResource("4_d51pj")
 
 [node name="Next" type="TextureButton" parent="ItemBar"]
 layout_mode = 2
 size_flags_vertical = 4
-texture_normal = ExtResource("3_t222i")
-texture_pressed = ExtResource("4_7lbh7")
-texture_hover = ExtResource("3_t222i")
-texture_focused = ExtResource("3_t222i")
-flip_h = true
+texture_normal = ExtResource("2_dp6gv")
+texture_pressed = ExtResource("2_dp6gv")
+texture_hover = ExtResource("2_dp6gv")
+texture_disabled = ExtResource("2_dp6gv")
+texture_focused = ExtResource("2_dp6gv")
 
 [connection signal="pressed" from="ItemBar/Prev" to="." method="_on_prev_pressed"]
 [connection signal="pressed" from="ItemBar/Use" to="." method="_on_use_pressed"]

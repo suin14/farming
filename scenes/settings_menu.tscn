@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3ppgqltptlni"]
+[gd_scene load_steps=5 format=3 uid="uid://c3ppgqltptlni"]
 
 [ext_resource type="Texture2D" uid="uid://b58owc1q081ha" path="res://assets/Setting menu.png" id="1_vjjqt"]
 [ext_resource type="Script" path="res://scenes/settings_menu.gd" id="2_nd33y"]
 [ext_resource type="Theme" uid="uid://dvi40yqd1j5yr" path="res://assets/main_theme.tres" id="2_u0clg"]
+[ext_resource type="PackedScene" uid="uid://qfokvelwikb4" path="res://scenes/volume_slider.tscn" id="4_ctlp0"]
 
 [node name="SettingsMenu" type="Control"]
 process_mode = 2
@@ -46,12 +47,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.5
+offset_left = -45.0
 offset_top = -28.0
-offset_right = 44.5
+offset_right = 46.0
 offset_bottom = 53.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 6
 
 [node name="Resume" type="Button" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
@@ -61,6 +63,19 @@ text = "回到游戏
 [node name="Quit" type="Button" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
 text = "退出游戏"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "BGM"
+
+[node name="Volume" parent="TextureRect/VBoxContainer/HBoxContainer" instance=ExtResource("4_ctlp0")]
+layout_mode = 2
+alignment = 1
+bus = &"BGM"
 
 [connection signal="pressed" from="TextureRect/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
