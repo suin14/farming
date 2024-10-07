@@ -4,6 +4,7 @@ const WHEAT = preload("res://scripts/objects/wheat.tres")
 const TOMATO = preload("res://scripts/objects/tomato.tres")
 const POTATO = preload("res://scripts/objects/potato.tres")
 
+var can_cancel := true
 
 class Inventory:
 	signal changed
@@ -11,7 +12,6 @@ class Inventory:
 	var active_item: Item
 	var _items := [WHEAT, TOMATO, POTATO]
 	var _current_item_index := 0
-	var is_planting := false
 	
 	func get_item_count() -> int:
 		return _items.size()

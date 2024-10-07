@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=4 uid="uid://ci7267bbshc3x"]
+[gd_scene load_steps=7 format=4 uid="uid://ci7267bbshc3x"]
 
 [ext_resource type="TileSet" uid="uid://cnvsycgdbuahm" path="res://assets/farm_tile_set.tres" id="1_e2115"]
 [ext_resource type="Script" path="res://scenes/farm.gd" id="1_ug3ow"]
 [ext_resource type="AudioStream" uid="uid://dp4jl83qd2h30" path="res://assets/Remembering Something I Forgot.mp3" id="2_ac0cq"]
 [ext_resource type="PackedScene" uid="uid://cam134ai878ii" path="res://scenes/zone.tscn" id="2_mi5d2"]
 [ext_resource type="PackedScene" uid="uid://sr4y1oyytuw0" path="res://scenes/weather.tscn" id="3_jyb1x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ts30j"]
+size = Vector2(160, 65)
 
 [node name="Farm" type="Node2D"]
 script = ExtResource("1_ug3ow")
@@ -149,5 +152,15 @@ position = Vector2(232, 112)
 [node name="Zone40" parent="Zone" instance=ExtResource("2_mi5d2")]
 position = Vector2(232, 128)
 
+[node name="check" type="Area2D" parent="Zone"]
+position = Vector2(160, 104)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone/check"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ts30j")
+
 [node name="weather" parent="." instance=ExtResource("3_jyb1x")]
 visible = false
+
+[connection signal="mouse_entered" from="Zone/check" to="." method="_on_check_mouse_entered"]
+[connection signal="mouse_exited" from="Zone/check" to="." method="_on_check_mouse_exited"]

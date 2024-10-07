@@ -17,6 +17,12 @@ func _ready() -> void:
 	_update_ui(true)
 
 
+func _input(event: InputEvent) -> void:
+	var can_cancel := Game.inventory.active_item and Game.can_cancel
+	if event.is_action_pressed("interact") and can_cancel:
+		_on_hand_outro()
+
+
 func _on_hand_outro() -> void:
 	_hand_outro = create_tween()
 	_hand_outro.set_trans(Tween.TRANS_SINE).set_parallel()
@@ -45,18 +51,18 @@ func _update_ui(is_init:= false):
 
 func _on_prev_pressed() -> void:
 	Game.inventory.select_prev()
-	if Game.inventory.active_item:
+	if Game.inventory.active_item and Game.can_cancel:
 		_on_hand_outro()
 
 
 func _on_next_pressed() -> void:
 	Game.inventory.select_next()
-	if Game.inventory.active_item:
+	if Game.inventory.active_item and Game.can_cancel:
 		_on_hand_outro()
 
 
 func _on_use_pressed() -> void:
-	if Game.inventory.active_item:
+	if Game.inventory.active_item and Game.can_cancel:
 		_on_hand_outro()
 	else:
 		Game.inventory.active_item = Game.inventory.get_current_item()
