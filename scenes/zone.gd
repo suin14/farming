@@ -23,6 +23,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			plant_growing = false
 			plant_grown = false
 			plant = null
+			Game.can_cancel = true
 		elif not plant_growing:
 			plant = Game.inventory.active_item
 			if plant:
